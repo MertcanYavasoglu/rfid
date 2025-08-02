@@ -19,14 +19,13 @@ MFRC522 rfid1(SS_PIN_1, RST_PIN_1);
 MFRC522 rfid2(SS_PIN_2, RST_PIN_2);
 
 // WiFi + single Google Script endpoint
-const char* ssid             = "nshioshi";
-const char* password         = "87654321";
-const char* googleScriptURL  = "https://script.google.com/macros/s/AKfycby82M32S9VsCAxgehuy-pDPeDbXAVZGyCf3uW6keuCeGHFvzX1OTrCTR8Qo4u8Vx2qIQQ/exec";
+const char* ssid             = "SSID";
+const char* password         = "PASS";
+const char* googleScriptURL  = "GOOGLE SHEETS LINKI TO THE HERE";
 
 // CSV-export URL for the UIDs tab (needed by fetchUIDsFromSheet)
 const char* googleUIDSheetCSV =
-  "https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/"
-  "gviz/tq?tqx=out:csv&sheet=UIDs";
+  "UID DATABASE LINKI";
 
 
 // Statik ADMIN listesi
