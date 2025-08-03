@@ -49,6 +49,6 @@ function doPost(e) {
 # Uyarılar
 - 12\. pine buton koymak lazım. basıldığında learn_uid ve door_handling modu arasında geçiş yapıyor.
 - 5 Ghz'te çalışmıyor. ssid ve pass verirken 2.4ghz olmasına dikkat et.
-- Admin kartlar hardcoded olarak kodun içinde duruyor. Hem güvenli değil hem de yeni admin kartların eklenmeini zorlaştırıyor. Ama zamanım azdı.
+- Admin kartlar hardcoded olarak kodun içinde duruyor. Hem güvenli değil hem de yeni admin kartların eklenmesini zorlaştırıyor.
 - Sistemi kurduktan sonra Google Sheets'te çeşitli senaryolar için makrolar atanabilir. Yetki NONE loglandıysa kırmızı gözükmesi, çıkış yapmadan 2 kere giriş yapıldığında sarı gözükmesi vb.
 - Röleyi test etmedim 5v'um yoktu.
