@@ -40,11 +40,11 @@ function doPost(e) {
 ```
 
 - Bu makroyu yazıp web app olarak dağıtıyoruz. Dağıtım iznini herkese veriyoruz, Kendi hesabım ile çalıştırılacak seçeneğini işaretliyoruz.
-- Web App dağıtım linkini main koddaki googleScriptURL değişkenine atıyoruz. googleScriptURL  
-örnek: https://script.google.com/macros/s/[ID]/exec
+- Web App dağıtım linkini main koddaki googleScriptURL değişkenine atıyoruz.  
+  googleScriptURL örnek: https://script.google.com/macros/s/[ID]/exec
 - Dosya -> Paylaş -> Web'de Yayınla'ya girip UIDs tabını CSV formatında bağlantı olarak yayınlıyoruz.
-- Linki googleUIDSheetCSV değişkenine atıyoruz. googleUIDSheetCSV  
-örnek: https://docs.google.com/spreadsheets/d/e/[ANOTHER ID]/pub?gid=1283621971&single=true&output=csv
+- Linki googleUIDSheetCSV değişkenine atıyoruz.  
+  googleUIDSheetCSV örnek: https://docs.google.com/spreadsheets/d/e/[ANOTHERID]/pub?gid=1283621971&single=true&output=csv
 
 # Uyarılar
 - 12\. pine buton koymak lazım. basıldığında learn_uid ve door_handling modu arasında geçiş yapıyor.
