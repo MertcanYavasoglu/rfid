@@ -1,9 +1,42 @@
 # rfid
-efenin kafesine kapı yaptım gptyle
+efenin kafesine kapı yaptım
 
-main çalışıyodu inş.
+1 gecekodu + 2 saat sürdü toplam.
 
-main2 daha güzel olcak ama bitmedi. uid tutan database ekledim yeni kart ekleme özelliği falan filan.
+# Kullanım
+- Google Sheets açıyoruz. "Logs" ve "UIDs" olarak 2 tab açıyoruz. İsimler makroda kullanıldığı için önemli.
+- Uzantılar -> Apps Script (Apps Komut Dosyası)
+'''javascript
+function doPost(e) {
+  const params = JSON.parse(e.postData.contents);
+  const ss     = SpreadsheetApp.getActive();
+  const uidSheet = ss.getSheetByName("UIDs");
+  const logSheet = ss.getSheetByName("Logs");
 
-gecekodunda anca bu kadar.
-1 saatim daha olsa neler yapardım.
+  if (params.operation && params.operation.trim().toUpperCase() === "LEARN") {
+    const uid = params.uid;
+    const existing = uidSheet.getRange("A:A").getValues().flat();
+    if (existing.indexOf(uid) < 0) {
+      uidSheet.appendRow([uid]);
+    }
+    return ContentService.createTextOutput("UID saved");
+  }
+  else if (params.operation && params.operation.trim().toUpperCase() === "LOG") {
+    const { timestamp, uid, location, role } = params;
+    logSheet.appendRow([timestamp, uid, location, role]);
+    return ContentService.createTextOutput("Log added");
+  }
+  else {
+    logSheet.appendRow([new Date(), "UNKNOWN OP:", params.operation]);
+    return ContentService.createTextOutput("Unknown operation");
+  }
+}
+'''
+
+- Bu makroyu yazıp web app olarak dağıtıyoruz. Dağıtım iznini herkese veriyoruz, Kendi hesabım ile çalıştırılacak seçeneğini işaretliyoruz. Web App dağıtım linkini main koddaki googleScriptURL değişkenine atıyoruz. googleScriptURL örnek: https://script.google.com/macros/s/[ID]/exec
+- Dosya -> Paylaş -> Web'de Yayınla'ya girip UIDs tabını CSV formatında bağlantı olarak yayınlıyoruz. Linki googleUIDSheetCSV değişkenine atıyoruz. googleUIDSheetCSV örnek: https://docs.google.com/spreadsheets/d/e/[ANOTHER ID]/pub?gid=1283621971&single=true&output=csv
+
+# Uyarılar
+- 5 Ghz'te çalışmıyor. ssid ve pass verirken 2.4ghz olmasına dikkat et.
+- Admin kartlar hardcoded olarak kodun içinde duruyor. Hem güvenli değil hem de yeni admin kartların eklenmeini zorlaştırıyor. Ama zamanım azdı.
+- Sistemi kurduktan sonra Google Sheets'te çeşitli senaryolar için makrolar atanabilir. Yetki NONE loglandıysa kırmızı gözükmesi, çıkış yapmadan 2 kere giriş yapıldığında sarı gözükmesi vb.
