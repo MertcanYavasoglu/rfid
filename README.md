@@ -3,6 +3,12 @@ efenin kafesine kapı yaptım
 
 1 gecekodu + 2 saat sürdü toplam.
 
+# Sistem
+- 1x esp32
+- 2x RC522
+- 1x Buton
+- 1x Güç Rölesi
+
 # Kullanım
 - Google Sheets açıyoruz. "Logs" ve "UIDs" olarak 2 tab açıyoruz. İsimler makroda kullanıldığı için önemli.
 - Uzantılar -> Apps Script (Apps Komut Dosyası)
@@ -41,7 +47,8 @@ function doPost(e) {
 örnek: https://docs.google.com/spreadsheets/d/e/[ANOTHER ID]/pub?gid=1283621971&single=true&output=csv
 
 # Uyarılar
+- 12. pine buton koymak lazım. basıldığında learn_uid ve door_handling modu arasında geçiş yapıyor.
 - 5 Ghz'te çalışmıyor. ssid ve pass verirken 2.4ghz olmasına dikkat et.
 - Admin kartlar hardcoded olarak kodun içinde duruyor. Hem güvenli değil hem de yeni admin kartların eklenmeini zorlaştırıyor. Ama zamanım azdı.
 - Sistemi kurduktan sonra Google Sheets'te çeşitli senaryolar için makrolar atanabilir. Yetki NONE loglandıysa kırmızı gözükmesi, çıkış yapmadan 2 kere giriş yapıldığında sarı gözükmesi vb.
-- röleyi test etmedim 5v'um yok
+- Röleyi test etmedim 5v'um yoktu.
