@@ -1,4 +1,4 @@
-# rfid
+# RFID 
 efenin kafesine kapı yaptım
 
 1 gecekodu + 2 saat sürdü toplam.
@@ -6,7 +6,7 @@ efenin kafesine kapı yaptım
 # Kullanım
 - Google Sheets açıyoruz. "Logs" ve "UIDs" olarak 2 tab açıyoruz. İsimler makroda kullanıldığı için önemli.
 - Uzantılar -> Apps Script (Apps Komut Dosyası)
-'''
+```javascript
 function doPost(e) {
   const params = JSON.parse(e.postData.contents);
   const ss     = SpreadsheetApp.getActive();
@@ -31,12 +31,17 @@ function doPost(e) {
     return ContentService.createTextOutput("Unknown operation");
   }
 }
-'''
+```
 
-- Bu makroyu yazıp web app olarak dağıtıyoruz. Dağıtım iznini herkese veriyoruz, Kendi hesabım ile çalıştırılacak seçeneğini işaretliyoruz. Web App dağıtım linkini main koddaki googleScriptURL değişkenine atıyoruz. googleScriptURL örnek: https://script.google.com/macros/s/[ID]/exec
-- Dosya -> Paylaş -> Web'de Yayınla'ya girip UIDs tabını CSV formatında bağlantı olarak yayınlıyoruz. Linki googleUIDSheetCSV değişkenine atıyoruz. googleUIDSheetCSV örnek: https://docs.google.com/spreadsheets/d/e/[ANOTHER ID]/pub?gid=1283621971&single=true&output=csv
+- Bu makroyu yazıp web app olarak dağıtıyoruz. Dağıtım iznini herkese veriyoruz, Kendi hesabım ile çalıştırılacak seçeneğini işaretliyoruz.
+- Web App dağıtım linkini main koddaki googleScriptURL değişkenine atıyoruz. googleScriptURL  
+örnek: https://script.google.com/macros/s/[ID]/exec
+- Dosya -> Paylaş -> Web'de Yayınla'ya girip UIDs tabını CSV formatında bağlantı olarak yayınlıyoruz.
+- Linki googleUIDSheetCSV değişkenine atıyoruz. googleUIDSheetCSV  
+örnek: https://docs.google.com/spreadsheets/d/e/[ANOTHER ID]/pub?gid=1283621971&single=true&output=csv
 
 # Uyarılar
 - 5 Ghz'te çalışmıyor. ssid ve pass verirken 2.4ghz olmasına dikkat et.
 - Admin kartlar hardcoded olarak kodun içinde duruyor. Hem güvenli değil hem de yeni admin kartların eklenmeini zorlaştırıyor. Ama zamanım azdı.
 - Sistemi kurduktan sonra Google Sheets'te çeşitli senaryolar için makrolar atanabilir. Yetki NONE loglandıysa kırmızı gözükmesi, çıkış yapmadan 2 kere giriş yapıldığında sarı gözükmesi vb.
+- röleyi test etmedim 5v'um yok
