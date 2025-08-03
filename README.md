@@ -6,7 +6,7 @@ efenin kafesine kapı yaptım
 # Kullanım
 - Google Sheets açıyoruz. "Logs" ve "UIDs" olarak 2 tab açıyoruz. İsimler makroda kullanıldığı için önemli.
 - Uzantılar -> Apps Script (Apps Komut Dosyası)
-'''javascript
+'''
 function doPost(e) {
   const params = JSON.parse(e.postData.contents);
   const ss     = SpreadsheetApp.getActive();
